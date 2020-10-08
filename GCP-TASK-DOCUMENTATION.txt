@@ -1,0 +1,63 @@
+		------------>    Google Cloud Platform(GCP)    <------------
+											
+
+--> First goto gcp console and login with gmail account.
+
+--> step 1:
+		create one new project with name "developproject" after that
+		in the left side bar there is a option networking in that i'm select vpc(virtual private network)
+		in vpc i'm going to create one lab in singapore region 1a  datacenter   name "lab-1" 
+
+--> Step 2: 
+		create onemore project with name "prodproject" after that
+		in the left side bar there is a option networking in that i'm select vpc(virtual private network)
+ 		in vpc i'm going to create one lab in US region 1a datacenter name "lab-2"
+
+	--> So far we are created two vpc networks in different regions  namely "lab-1" and "lab-2" it meance 2 buildings/network are created.
+
+--> Step 3:
+		Now i'm going to install centOs version-7 developproject one operating system in lab-1. 
+		go to prodproject in that same install centOs version-7 operating system in lab-2. 
+
+	--> So i'm created two separate "buildings/network" in different regions and  create Some individual network.
+
+--> Step 4:
+		Now i'm going to connect via private network  two indivisual operating systems together meance developproject and prodproject , so we are using the option called vpc peering.
+		after peering the both operating system 
+		i'm going to create my own firewall setup like 0.0.0.0/0 , it meance i'm going to ping ne operating system to another operating system via private network.
+
+--> Step 5:
+		Now in developproject i'm create "Kubernetes Cluster" after created cluster,  here i'm download one software that is "Kubectl.exe" from google. 
+		after installing complete i'm going to connect my k8s using the url which is provided in k8s to connect my account using commad line(CLI). 
+		
+					"kubectl.exe create deployment myweb --image=vimal13/apache-webserver-php"
+
+		using above commad to launching one operating system , actually in this bootable --image already configured webserver.
+
+					"kubectl.exe get pods"
+
+		using above commad see how many pods are available/running in my container.
+
+					"kubectl.exe scale deployment myweb --replicas=5"
+
+		using above command to increse my replica size 5.
+
+					"kubectl.exe get pods"
+
+		using above command to check my pods, now its 5.after this i'm instaling wordpress using below command.
+
+					"kubectl.exe create deployment mywp --image=wordpress"
+
+		Now i'm going to create on "LoadBlancer" because i have 5 pods so if more clients come to my site they connect always 1st one so it is not god thing so i'm installing on top of container is "LoadBlancer" this is manage the clients depends on the traffic.
+
+--> Step 6:
+		here change to "prodproject" 
+		in this i'm going to create one "sql database"  in that i'm create one database name "mydb"
+		after createthe database here i'm going to create my firewall rule as a "public"
+
+
+--> Finally i'm going to connect the SQL database with application launched in the k8s cluster using wordpress software and create some web site.
+
+
+
+ 
