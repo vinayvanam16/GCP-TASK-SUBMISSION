@@ -1,4 +1,4 @@
-		------------>    Google Cloud Platform(GCP)    <------------
+		------------>    Google Cloud Platform(GCP)  TASK   <------------
 											
 
 --> First goto gcp console and login with gmail account.
